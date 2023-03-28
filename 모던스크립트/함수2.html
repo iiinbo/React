@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function showMessage(text){
+        // if (text == undefined){ //방법1. 에러 발생 처리 먼저 해놓기
+        //     text="반갑습니다.";
+        // }
+        text = text || "반갑습니다."; //방법2.값 없을경우 에러처리.
+        console.log(text);
+    }
+
+    showMessage(); //빈 문자열 출력 : undefined
+    showMessage("안녕안녕");
+</script>

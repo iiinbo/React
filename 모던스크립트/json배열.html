@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>json 배열 연습</h1>
+</body>
+</html>
+<script>
+    let s = [
+        {name : "인보", kor : 90, eng : 80, mat : 70},
+        {name : "꺽정", kor : 70, eng : 80, mat : 70},
+        {name : "길산", kor : 90, eng : 80, mat : 90},
+        {name : "감찬", kor : 80, eng : 80, mat : 80},
+        {name : "순신", kor : 100, eng : 100, mat : 100}
+    ];
+
+    //동일한 값 출력방법. 3가지
+    //일반적 for문 / total 프로퍼티 추가했다.
+    for(i=0; i<s.length; i++){
+        s[i].total = s[i].kor + s[i].eng + s[i].mat;
+        console.log(`${s[i].name} ${s[i].total}`);
+    }
+    //in으로 인덱스 가져온다(i값과 배열값 모두 반환)
+    for(i in s){
+        console.log(`${s[i].name} ${s[i].total}`);
+    }
+    //foreach문으로 전부 가져온다.
+    s.forEach( (e) =>{
+        console.log(`${e.name} ${e.total}`);
+    });
+
+</script>

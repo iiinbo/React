@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>과제 1. 클론코딩_6조 정인보</h1>
+</body>
+</html>
+    <script>
+    //사각형(ractangle)의 면적 구하기
+    //도형 데이터 입력
+    let ractangle = [
+        {width : 4, height : 4, length : 0, surface : 0}, //가로 : 세로 : 둘레 : 면적
+        {width : 5, height : 4, length : 0, surface : 0},
+        {width : 6, height : 5, length : 0, surface : 0},
+        {width : 7, height : 6, length : 0, surface : 0},
+        {width : 8, height : 7, length : 0, surface : 0}
+    ];
+    //출력(of를 사용하여 배열값 반환)
+    for(item of ractangle){
+        item["length"] = item["width"] * 2 + item["height"] * 2; //둘레구하기
+        item["surface"] = item["width"] * item["height"]; //면적구하기
+    }
+
+    for(item of ractangle){
+        console.log(`가로 : ${item["width"]} 세로 : ${item["height"]} 둘레 : ${item["length"]} 면적 : ${item["surface"]}`);
+    }
+    </script>

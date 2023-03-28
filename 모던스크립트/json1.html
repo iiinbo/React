@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let person = {"name" : "정인보", "age" : 27, kor:90, eng:90, mat : 100};
+    //출력방법 2개 동일
+    console.log(person.name, person.age, person.kor, person.eng, person.mat);
+    console.log(person["name"], person["age"], person["kor"], person["eng"], person["mat"]);
+
+    //새로운 프로퍼티를 추가한 모습
+    person.total = person.kor + person.mat + person.eng;
+    person.avg = person.total / 3;
+
+    console.log(`${person}의 총 합계는 ${person.total} / 평균은 ${person.avg} 입니다.`);
+    console.log(person); //일반출력 시 프로퍼티 추가한 것까지 나온다.
+</script>

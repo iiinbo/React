@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let x = 10;
+
+    console.log("0" == 0); //강제 자동형변환 : true 반환됨
+    console.log("0" === 0); // 엄격모드 연산자 형변환 안함: false 반환됨
+
+    console.log("0" != 0); //강제 자동형변환 : false 반환됨
+    console.log("0" !== 0); // 엄격모드 연산자 형변환 안함: true 반환됨
+
+    console.log(`${x} == "10" = ${x == "10"}`); // x == 10 : 문자가 자동형변환 되어서 10이 맞으므로 true
+    console.log(`${x} === 10 = ${x === 10}`); // x ===10 : 숫자형 10이 맞으므로 true
+</script>

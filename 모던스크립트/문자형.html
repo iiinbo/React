@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let str1 = "Hello";
+    let str2 = "single quotes are ok too";
+    let str3 = `backtick도 가능하다. / ${str1} / ${str2}`;
+
+    console.log(str1);
+    console.log(str2);
+    console.log(str3);
+
+    let name = "정인보";
+    let age = 27;
+    let address = "서울시 성수동";
+
+    result1 = "이름 : " + name + " 나이 : " + age + " 주소 : " + address;
+    result2 = `이름 : ${name} 나이 : ${age} 주소 : ${address}`; //백틱 사용 권장(노드제이슨)
+
+    console.log(result1);
+    console.log(result2);
+
+    //tip.백틱은 텍스트 작성위치 그대로 출력된다.
+    stsr1 = `
+    개나리
+     진달래
+        연산홍
+    `
+    console.log(stsr1);
+</script>

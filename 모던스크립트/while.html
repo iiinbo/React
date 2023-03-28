@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    i = 1; //js에서 거의 사용안하는 구문.
+    while(i <= 10){
+        console.log("i = ", i);
+        i++;
+    }
+    //i의 모든 합 구하기
+    i = 1;
+    sum = 0;
+    while(i <= 10){
+        sum += i;
+        i++;
+    }
+    console.log("i의 합은 = ", sum);
+    //1~n까지의 합계를 구한다. 합계가 1000이 넘는 n을 구하자 [while문 적합]
+    i = 0;
+    sum = 0;
+    while(sum < 1000   ){
+        i++;
+        sum+=i; //조건문에 들어가는 함수가 실행 마지막문으로 들어가는 것이 안정적. 외우기.
+    } console.log(i, sum);
+</script>

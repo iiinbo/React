@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>for문 연습</h1>
+</body>
+</html>
+<script>
+    let flowers = ["작약", "코스모스", "수국", "장미", "국화"];
+    //1.
+    console.log(flowers); //java랑 다르게 for문 사용 안해도 배열값 모두 전체출력 가능.
+
+    //2.
+    for(i=0; i < flowers.length; i++){
+        console.log(i, flowers[i]); //i의 값과 배열값 함께 출력해준다.
+    }
+    
+    //3.
+    //in 연산자는 배열의 인덱스(i값 + 배열값)를 가져온다.
+    for(i in flowers){
+        console.log(i, flowers[i]);
+    }
+
+    //of 연산자는 배열의 요소(배열값)만을 하나씩 가져온다.
+    for(i of flowers){
+        console.log(i);
+    }
+
+    //4. 가장 많이 사용
+    //for-each문 : 매개변수로 함수가 전달되는 것
+    // 매개체가 되는 변수, 함수 외부에서 함수 내부로 값을 전달할 때 쓰이는 변수.
+    //java와 차이 ! 함수에 주소값만 저장할 수 있지만 js는 함수에 변수 저장 모두가능.
+    //for-each 함수한테 함수를 주는 것이다. 매개변수 1개, 반환값은 없는 함수를 전달해줘야 한다.
+    flowers.forEach( (x, i)=> { //x와 i(인덱스)모두 매개변수
+        console.log(x, i);
+    });
+    //참고예제.
+    let flag = false;
+    i = 1;
+    j = 1;
+
+    while(true){
+        i++;
+        while(true){
+            console.log(i, j);
+            j++;
+            if(j >= 5){
+                
+                flag = true;
+                
+                break;
+            }
+        }
+        if(flag){
+        break;
+        }
+    }
+</script>

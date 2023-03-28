@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//예제1.
+    let year = prompt("연도는", "입력 예시) 2023");
+
+    if(year != null){
+        //year = parseInt(year); 숫자형으로 변환 하지 않아도 에러 발생 안함. 연산만나면 자동형변환 완료.
+        if(year%4 == 0 && year%100 != 0 || year%400 == 0){
+            console.log(`${year} 는(은) 윤년에 해당됩니다.`); //윤년 : 4년에 한번(100년은 제외) 400년에 한번.
+        } else{
+        console.log(`${year} 는(은) 윤년이 아닙니다.`);
+        }
+    } else { alert("프로그램을 취소하셨습니다.");
+    }
+
+//예제2.
+    let age = prompt("나이를 입력해 보세요", "예시) 27");
+
+    if(age > 18){ //19세 이상부터 성년
+        alert(`${age}세 는 성년입니다.`);
+    } else{
+        alert(`${age}세 는 미성년자 입니다.`);
+    }
+
+</script>

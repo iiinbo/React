@@ -11,10 +11,11 @@
 </body>
 </html>
 <script>
-    "use strict"; //엄격하게 체크.맨 윗줄에 적는다.
+    "use strict"; //엄격하게 체크.맨 윗줄에 적는다.(사용권장), 
+    //변수 만들어 사용하지 않아도 정보저장이 가능
     
 
     let a=10; //엄격모드에선 a가 선언되지 않아 에러난다.
-    let b=20;
+    let b=20; //let은 에러. var는 정상으로 출력
     console.log(a+b);
 </script>

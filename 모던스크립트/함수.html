@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>함수 연습</h1>
+</body>
+</html>
+<script>
+    //함수 : sayHello 정의부터 하기
+    //자바스크립트에선 내가만든 함수의(매개변수)는 변수 이름만 쓰자
+    //궁금한 점 : 매개변수를 두는 이유는 뭐지 ? name 말고도 다른 것 만들어서 쓸 수 있잖아~
+    //설명 : 정인보/장길산/홍길동 마다 같은기능을 하는 다른이름의 함수를 쓸 필요 없으니까.
+    function sayHello(name){
+        console.log(`안녕하세요 ${name} 님`);
+    }
+
+    //함수호출
+    sayHello("정인보");
+    sayHello("장길산");
+    sayHello("홍길동");
+
+    //2.
+    //매개 변수에다가 '기본값'을 부여해보자. java에 없는 기능인데 자바에서 오버로딩과 비슷함
+    //java에서 컨스트럭터 만들던 모양과 비슷
+
+    //먼저, 기본값 없이 출력
+    function myfunc1(a, b, c){
+        return a+b+c;
+    }
+    console.log( myfunc1() ); //출력 : NaN 의미 : 연산이 불가하다.
+    console.log( myfunc1(1,2,3) ); //출력 : 6
+
+    //3. 매개변수에 기본값 부여(오버로딩과 비슷한 효과이다.)
+    //부여방법 : 기본값을 안주는 변수를 먼저 기술하고
+    //          기본값을 부여하는 변수들을 나중에 기술해준다
+    //          함수 이름은 무조건 다르게.
+    function myfunc2(a = 10, b = 20, c = 30){ //기본값 설정
+        return a+b+c;
+    }
+    console.log( myfunc2() ); //출력 : 60
+    console.log( myfunc2(1) ); //출력 : 51 [1 + 20 + 30]
+    console.log( myfunc2(1,2) ); //출력 : 33 [1 + 2 + 30]
+    console.log( myfunc2(1,2,3) ); //출력 : 6 [1 + 2 + 3]
+
+    //1부터 10까지 합계를 구하는 함수 
+    // sigma함수를 여러번 쓰고싶어! 매개변수(이름만 쓰면돼 + 값(기본값))를 만들자.
+    function sigma(limit=10){
+       if(limit < 0){
+        return 0; //tip.함수 처음부터 간결하고 깔끔하게 에러 처리! 음수 값이 limit에 입력되면 함수 종료시켜.(이때 return)
+       }
+
+        sum = 0;
+        for(i=1; i <=limit; i++){
+            sum += i;
+        }
+        return sum; //반환 값은 하나만 가능.
+    } 
+        console.log(sigma()); //출력 : 55
+        let result = sigma();
+        console.log(result); //출력 : 55
+        console.log( sigma(100) ); //기본값인 10말고 100으로 입력 / 출력 : 5050
+        console.log( sigma(1000) ); //기본값인 10말고 1000으로 입력 / 출력 : 500500
+
+        console.log(sigma(-3)); //에러발생// 출력 : 0
+</script>
