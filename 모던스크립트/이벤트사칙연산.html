@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>간이 계산 프로그램</h2>
+    x : <input type="text" name="xvalue" id="xvalue"><br>
+    y : <input type="text" name="yvalue" id="yvalue"><br>
+    <br><hr>
+    <h3>연산결과 확인하기</h3>
+    <button onclick="add('1')">더하기</button>&nbsp;&nbsp;
+    <button onclick="add('2')">빼기</button>&nbsp;&nbsp;
+    <button onclick="add('3')">곱하기</button>&nbsp;&nbsp;
+    <button onclick="add('4')">나누기</button>&nbsp;&nbsp;
+    <button onclick="add('5')">나머지</button>&nbsp;&nbsp;
+    <span id="result"></span>
+</body>
+</html>
+<script>
+//각각 함수 만들지 않고! 하나의 변수(여러개 매개변수를 만들어주면 아래처럼~)
+function add(oper){
+        //1. get으로 데이터 읽어오기
+       x = document.getElementById("xvalue").value;
+       y = document.getElementById("yvalue").value;
+
+       //2.연산하기
+        if(oper == '1')
+            result = parseInt(x) + parseInt(y);
+            else if(oper == '2')
+            result = parseInt(x) - parseInt(y);
+            else if(oper == '3')
+            result = parseInt(x) * parseInt(y);
+            else if(oper == '4')
+            result = parseInt(x) / parseInt(y);
+            else
+            result = parseInt(x) % parseInt(y);
+
+        //3.출력하기
+        document.getElementById("result").innerHTML = result;
+    }
+    // //각각 만든것
+    // function add1(){
+    //     //더하기
+    //     //1. get으로 데이터 읽어오기
+    //    x = document.getElementById("xvalue").value;
+    //    y = document.getElementById("yvalue").value;
+
+    //    //2.연산하기
+    //     //동일표현 : result = parseInt(x) + parseInt(y);
+    //     //3.출력하기
+    //     document.getElementById("result").innerHTML= parseInt(x) + parseInt(y); //innerHTML = result; (동일표현)
+    // }
+    // //빼기
+    // function add2(){
+    //     //1. get으로 데이터 읽어오기
+    //    x = document.getElementById("xvalue").value;
+    //    y = document.getElementById("yvalue").value;
+
+    //    //2.연산하기
+    //      result = parseInt(x) - parseInt(y);
+    //     //3.출력하기
+    //     document.getElementById("result").innerHTML = result; (동일표현)
+    // }
+    // //곱하기
+    // function add3(){
+    //     //1. get으로 데이터 읽어오기
+    //    x = document.getElementById("xvalue").value;
+    //    y = document.getElementById("yvalue").value;
+
+    //    //2.연산하기
+    //      result = parseInt(x) * parseInt(y);
+    //     //3.출력하기
+    //     document.getElementById("result").innerHTML = result; (동일표현)
+    // }
+    // //나누기
+    // function add4(){
+    //     //1. get으로 데이터 읽어오기
+    //    x = document.getElementById("xvalue").value;
+    //    y = document.getElementById("yvalue").value;
+
+    //    //2.연산하기
+    //      result = parseInt(x) / parseInt(y);
+    //     //3.출력하기
+    //     document.getElementById("result").innerHTML = result; (동일표현)
+    // }
+    // //나머지
+    // function add5(){
+    //     //1. get으로 데이터 읽어오기
+    //    x = document.getElementById("xvalue").value;
+    //    y = document.getElementById("yvalue").value;
+
+    //    //2.연산하기
+    //      result = parseInt(x) % parseInt(y);
+    //     //3.출력하기
+    //     document.getElementById("result").innerHTML = result; (동일표현)
+    // }
+</script>

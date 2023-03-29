@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="goDisplay()">함수선언식</button> <br>
+    <button type="button" id="btnPress">함수표현식</button> <br>
+    <button type="button" id="btnPress2">화살표함수</button> <br>
+    <!-- 페이지 1개당 하나의 id만 사용하자. 위 방식 사용하면 클릭 발생 시에만 함수/기능 사용이 가능함. -->
+    <!-- <input type="submit"> & <button></button> 무조건 서버로 정보를 전송한다. -->
+    <!-- <input type="button"> & <button type="button"> 이벤트만 발생시킨다.(주로사용) -->
+</body>
+</html>
+
+<script>
+    //<button type="button"> 에서 onclick 동작이 발생 시
+        //이벤트를 발생시키겠다고 함수를 사용할 것 이므로,
+        //아래에서 함수 선언해주기. (함수종류 : 콜백함수. 시스템에서 호출되어진다는 의미)
+    
+    //1. 함수선언식
+        function goDisplay(){
+        alert("버튼 눌림!");
+    }
+
+    //버튼 객체 먼저 body에 만든 뒤-> 나중에 함수를 붙인다.
+    //2. 함수표현식
+    document.getElementById("btnPress").addEventListener('click', function(){
+        alert("두번째 버튼 눌림");
+    })
+
+    //3. 화살표함수 방식 : function 대신 => 이거사용만 다름
+    document.getElementById("btnPress2").addEventListener('click',()=>{
+        alert("세번째 버튼 눌림");
+    })
+</script>
+
+<!-- 참고! script를 초창기 헤더에 놓음. 함수선언을 헤더에 선언했다면 아래 표현식 사용 필요. 현재는 /html 다음에 사용 권장. -->
+<!-- window.onload=function(){함수자리} -->
+    <!-- 온로드 안에 함수선언~~하면 브라우저에 문서 띄우자마자 함수 불러올 준비 완료 -->

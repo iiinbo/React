@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>주단위 급여 계산 프로그램</h2>
+    이름 : <input type="text" id="name"><br>
+    근무시간(주단위) : <input type="text" name="worktime" id="worktime"><br>
+    급여(시간당) : <input type="text" name="moneyvalue" id="moneyvalue"><br>
+    <br><hr>
+    <h3>계산결과 확인하기</h3>
+    <button onclick="cal()">급여확인</button>&nbsp;&nbsp;
+    <button onclick="calclear()">새로입력</button>&nbsp;&nbsp;
+ 
+    <span id="result"></span>
+</body>
+</html>
+<script> //매개변수 선언
+    function cal(){
+        //1.입력받기(input 모두)
+        name = document.getElementById("name").value; //이름입력
+        worktime = document.getElementById("worktime").value; //근무시간 입력
+        money = document.getElementById("moneyvalue").value; //시간당 급여 입력
+        worktime = parseInt(worktime);
+        money = parseInt(money);
+
+        //2.연산하기
+        sendmoney = worktime * money;
+        overmoney = 0;
+        if(worktime > 20){
+            overmoney = (worktime - 20) * money / 2;
+             }
+
+        
+        //3.출력하기
+        temp = `${name}의 기본급여는  ${sendmoney} 이고, 추가 수당은  ${overmoney} 이며
+                급여 총액은  ${sendmoney + overmoney} 입니다.`;
+        document.getElementById("result").innerHTML = temp;
+    }
+
+    function calclear(){ //초기화 해주는 함수 만들기
+        document.getElementById("name").value="";
+        document.getElementById("worktime").value="";
+        document.getElementById("moneyvalue").value="";
+        document.getElementById("sendmoney").value="";
+        document.getElementById("overmoney").innerHTML="";
+    }
+    
+</script>

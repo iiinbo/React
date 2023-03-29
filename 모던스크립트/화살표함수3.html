@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>화살표함수(=람다), 정렬하기</h1>
+</body>
+</html>
+<script>
+    let person = [
+        {name : "홍길동", age : 27, phone : "010.3131.3131"},
+        {name : "홍길가", age : 28, phone : "010.3131.3132"},
+        {name : "홍길나", age : 29, phone : "010.3131.3133"},
+        {name : "홍길다", age : 30, phone : "010.3131.3134"},
+        {name : "홍길라", age : 31, phone : "010.3131.3135"},
+        {name : "홍길마", age : 32, phone : "010.3131.3136"},
+        {name : "마길바", age : 33, phone : "010.3131.3137"},
+        {name : "홍길사", age : 34, phone : "010.3131.3138"},
+        {name : "홍길아", age : 7, phone : "010.3131.3139"},
+        {name : "윤길자", age : 17, phone : "010.3131.3130"},
+    ];
+    //데이터 추가하기
+    person.push({name : "정인보", age : 27, phone : "010.1111.2222"});
+    //출력하기
+    person.forEach( (p)=> {
+        console.log(`${p.name} ${p.age} ${p.phone}`);
+    } )
+    //문제. 성이 윤씨인 사람 찾기
+    result = person.filter(p => { //p : json 객체가 전달된다.
+        return p.name.startsWith("홍")  //함수 : startWith : 원하는 문자열로 시작하는지
+    });
+    console.log(result);
+
+    //문제. 성년과 미성년 구분하기
+    let ageless19 = person.filter(p=> p.age < 19); //18세 이하 미성년
+    let agege19 = person.filter(p=> p.age >= 19); //19세 이상 성년
+
+    console.log(ageless19);
+    console.log(agege19);
+
+    //정렬(함수 : Sort) - 데이터 순서대로 정렬하기(오름, 내림)
+    //-음수, 0,양수 로 두 객체를 비교해서 앞에 것이 작으면 음수!
+    //같으면 0
+    //앞에 것이 크면 양수로 반환하면 정렬된다.
+    //1.숫자 정렬(오름) *아래 문자정렬문 주석처리해야 정렬 정상
+    let sorted = person.sort((p1, p2)=> p1.age - p2.age); //숫자형은 (-)로 정렬가능. 순서바꾸면 차순바뀜
+    console.log(sorted);
+
+    //2.문자 정렬(오름) ㅎ(크다) > ㄱ
+    let sorted2 = person.sort((p1, p2)=> {
+        if(p1.name  > p2.name){
+            return 1;
+        }else if(p1.name < p2.name){
+            return -1;
+        } else {
+            return 0;
+        }
+        }); 
+    console.log(sorted2);
+</script>
