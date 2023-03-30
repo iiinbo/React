@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h2>주단위 급여 계산 프로그램(제이쿼리)</h2>
+    이름 : <input type="text" id="name"><br>
+    근무시간(주단위) : <input type="text" id="worktime"><br>
+    급여(시간당) : <input type="text" id="moneyvalue"><br>
+    <br><hr>
+    <h3>계산결과 확인하기</h3>
+
+    <button type="button" id="btnCofirm">급여확인</button>&nbsp;
+    <button type="button" id="btnClear">새로입력</button>&nbsp;
+
+    <div id="result"></div>
+</body>
+</html>
+<script>
+    $(document).ready((()=>{
+
+        //급여확인 함수
+        $("#btnCofirm").click(()=>{
+        //근무시간 읽어오기
+        name = $("#name").val();
+        worktime = parseInt($("#worktime").val()); //input에 입력받으면 int로 변환. id는 #붙이고, input은 val로 읽고쓴다
+        moneyvalue = parseInt($("#moneyvalue").val());
+      
+        sendmoney = worktime * moneyvalue;
+        overmoney = 0;
+
+        //연산하기
+      
+   
+
+        if(worktime > 20){
+            overmoney = (worktime - 20) * moneyvalue *0.5;
+             }
+
+         //3.출력하기
+         temp = `${name}의 기본급여는  ${sendmoney} 이고, 추가 수당은  ${overmoney} 이며
+                급여 총액은  ${sendmoney + overmoney} 입니다.`;
+       
+               $("#result").html(temp);
+
+        })
+   
+          //새로입력
+          $("#btnClear").click(()=>{
+            $("input").val(""); //태그값 초기화
+            $("#result").html(""); //결과 초기화
+          })
+        }))
+</script>

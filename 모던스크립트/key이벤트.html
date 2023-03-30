@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>소문자로 입력해도 대문자로 변환입력되어요</p>
+    name : <input type="text" id="fname" onkeydown="goKeyDown()"
+    onkeypress="goKeyPress()"  onkeyup="goKeyUp()"><br>
+</body>
+</html>
+<script>
+    function goKeyDown(){
+        console.log( event.keyCode ); 
+        console.log("keydown 효과 발생");
+    }
+    function goKeyPress(){
+        console.log( event.key ); //우리가 누르는 문자키 정보가 찍혀나온다.(코드확인 : keyCode)
+        console.log("keypress 효과 발생");
+    }
+    function goKeyUp(){ //많이 사용
+        console.log("keyup 효과 발생");
+        x = document.getElementById("fname"); //객체 가져오기
+        x.value = x.value.toUpperCase(); //가져온 객체는 모두 대문자영어로
+    }
+</script>

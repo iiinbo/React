@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn1" style="background-color: aqua" onclick="changeBackground(this)">배경</button><br>
+    <button type="button" id="btn2" style="background-color: yellow" onclick="changeBackground(this)">배경</button><br>
+    <button type="button" id="btn3" style="background-color: red" onclick="changeBackground(this)">배경</button><br>
+    <button type="button"  id="btn4" style="background-color: pink" onclick="changeBackground(this)">배경</button><br>
+    <button type="button" id="btn5" style="background-color: black" onclick="changeBackground(this)">배경</button><br>
+</body>
+</html>
+<script>
+    function changeBackground(me){
+        console.log( event.target.id ); //event.target.id : js가 기본으로 제공하는 내장객체
+        //발생한 이벤트에 대한 모든 정보를 가지고 있다.
+        body = document.getElementsByTagName("body"); //body 누락주의
+        body[0].style.backgroundColor = me.style.backgroundColor;
+    }
+</script>

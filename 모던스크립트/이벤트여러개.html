@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>버튼에 이벤트 리스터 붙여보기</p>
+    <h4>onclick : 이벤트 발생 하나만 가능</h4>
+    <h4>addEventListener : 함수 하나에 이벤트 여러개 발생시키기 가능</h4>
+    <button type="button" id="mybtn">눌러보세요</button>
+</body>
+</html>
+<script>
+    window.onload = ()=> {
+        //id = "mybtn" 을 button으로 사용하겠다고 표기
+        button = document.getElementById("mybtn");
+
+        //addEventListener 함수 선언하기! 
+        button.addEventListener("click", ()=>{
+            alert("first function !");
+        })
+        button.addEventListener("click", ()=>{
+            alert("second function !!");
+        })
+        button.addEventListener("click", ()=>{
+            alert("third function !!!");
+        })
+
+    }
+</script>

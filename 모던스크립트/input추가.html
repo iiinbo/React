@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="margin-left: 10%;">인보네 수퍼마켓 품목리스트</h1>
+    <button type="button" id="btnAdd" style="margin-left: 10%;">추가하기</button>&nbsp;&nbsp;
+    <button type="button" id="btnDel" style="margin: auto;">삭제하기</button><br/><br/>
+    <table style="width: 80%; margin: auto; border: violet 2px solid;">
+        <!-- 각 열들에게 스타일을 지정(크기 등)해 주기위한 목적으로 colgroup -->
+        <colgroup> 
+            <col style="width : 33%">
+            <col style="width : 33%">
+            <col style="width : 33%">
+        </colgroup>
+        <thead>
+            <th>품목</th>
+            <th>개수</th>
+            <th>단가</th>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td><input type="text" name="product_name"></td>
+                <td><input type="text" name="product_count"></td>
+                <td><input type="text" name="product_price"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+let data = [
+        {name : "새우깡", count : 2, price : 2000},
+        {name : "양파링", count : 24, price : 5000},
+        {name : "맛동산", count : 23, price : 10000},
+    ];
+
+    window.onload=()=>{
+        document.getElementById("btnAdd").addEventListener("click", goAdd);
+        document.getElementById("btnDel").addEventListener("click", goDel);
+    }
+
+    function goAdd(){
+        tbody = document.getElementById("tbody");
+
+        row = tbody.insertRow(tbody.rows.length); //표 맨 하단에 새로운 행 추가
+        cell1= row.insertCell(0); //노란색 배열에서 첫번째 인덱스(name)를 행으로 추가
+        cell2= row.insertCell(1); //두번째 인덱스(count)를 행으로 추가
+        cell3= row.insertCell(2);//세번째 인덱스(price)를 행으로 추가
+
+        cell1.innerHTML = '<input type="text" name="product_name">'; //따옴표 충돌안되게 두개 다 사용
+        cell2.innerHTML = '<input type="text" name="product_count">';
+        cell3.innerHTML = '<input type="text" name="product_price">';
+        
+    }
+    function goDel(){
+        tbody = document.getElementById("tbody");
+        if(tbody.rows.length > 1)
+        tbody.deleteRow(tbody.rows.length-1); //index 맨 마지막행부터 삭제.(-1)
+        else
+        alert("더는 삭제할 수 없습니다.");
+    }
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>jquery를 활용한 사칙연산 프로그램</h1>
+    x : <input type="text" id="x"><br/>
+    y : <input type="text" id="y"><br/>
+    result : <input type="text" id="result" readonly><br/>
+    <!-- readonly : 읽기전용모드로 값 입력 불가상태로 바꿈 -->
+
+    <button type="button" id="btnAdd">+</button>
+    <button type="button" id="btnSub">-</button>
+    <button type="button" id="btnMul">*</button>
+    <button type="button" id="btnDiv">/</button>
+
+</body>
+</html>
+<script>
+    $(document).ready(()=>{
+       //1.더하기
+        $("#btnAdd").click(()=>{
+        //x,y값 읽어오기
+        x = parseInt($("#x").val()); //input에 입력받으면 int로 변환. id는 #붙이고, input은 val로 읽고쓴다
+        y = parseInt($("#y").val());
+        
+        //연산하기
+        result = x+y;
+        $("#result").val(result);
+        })
+
+        //2.빼기
+        $("#btnSub").click(()=>{
+        //x,y값 읽어오기
+        x = parseInt($("#x").val()); //input에 입력받으면 int로 변환. id는 #붙이고, input은 val로 읽고쓴다
+        y = parseInt($("#y").val());
+        
+        //연산하기
+        result = x-y;
+        $("#result").val(result);
+        })
+
+        //3.곱하기
+        $("#btnMul").click(()=>{
+        //x,y값 읽어오기
+        x = parseInt($("#x").val()); //input에 입력받으면 int로 변환. id는 #붙이고, input은 val로 읽고쓴다
+        y = parseInt($("#y").val());
+        
+        //연산하기
+        result = x*y;
+        $("#result").val(result);
+        })
+
+        //4.나누기
+        $("#btnDiv").click(()=>{
+        //x,y값 읽어오기
+        x = parseInt($("#x").val()); //input에 입력받으면 int로 변환. id는 #붙이고, input은 val로 읽고쓴다
+        y = parseInt($("#y").val());
+        
+        //연산하기
+        result = x/y;
+        $("#result").val(result);
+        })
+    })
+</script>
