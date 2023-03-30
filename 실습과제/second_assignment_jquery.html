@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h2>성적관리 프로그램(제이쿼리)</h2>
+    이름 : <input type="text" id="name"><br>
+    국어 : <input type="text" id="kn"><br>
+    영어 : <input type="text" id="en"><br>
+    수학 : <input type="text" id="mh"><br>
+    과학 : <input type="text" id="sn"><br>
+    <br><hr>
+    <h3>성적 결과 확인</h3>
+
+    <button type="button" id="btnCofirm">결과확인</button>&nbsp;
+    <button type="button" id="btnClear">새로입력</button>&nbsp;<br/>
+
+    <div id="result"></div>
+</body>
+</html>
+
+<script>
+    $(document).ready((()=>{
+
+        //성적 결과확인 함수만들기
+        $("#btnCofirm").click(()=>{
+        //성적 점수 먼저 읽어오기
+        name = $("#name").val(); 
+        kn = parseInt($("#kn").val()); //input에 입력받으면 int로 변환. id는 #붙이고, input은 val로 읽고쓴다
+        en = parseInt($("#en").val());
+        mh = parseInt($("#mh").val());
+        sn = parseInt($("#sn").val());
+     
+        //점수 연산하기
+        sum = kn + en + mh + sn; //성적합계
+        avg = sum / 4; //성적평균
+      
+        //성적 입력범위 조건부여
+        if(kn > 100 || kn < 0){
+            alert("'국어' 성적의 입력범위를 초과했습니다. 0~100까지만 입력 가능합니다.");
+            $("#kn").val(""); //input 태그값 중 잘못 입력한 값만 재입력
+            return false;
+        }
+        if(en > 100 || en < 0){
+            alert("'영어' 성적의 입력범위를 초과했습니다. 0~100까지만 입력 가능합니다.");
+            $("#en").val(""); //input 태그값 중 잘못 입력한 값만 재입력
+            return false;
+        }
+        if(mh > 100 || mh < 0){
+            alert("'수학' 성적의 입력범위를 초과했습니다. 0~100까지만 입력 가능합니다.");
+            $("#mh").val(""); //input 태그값 중 잘못 입력한 값만 재입력
+            return false;
+        }
+        if(sn > 100 || sn < 0){
+            alert("'과학' 성적의 입력범위를 초과했습니다. 0~100까지만 입력 가능합니다.");
+            $("#sn").val(""); //input 태그값 중 잘못 입력한 값만 재입력
+            return false;
+        }
+
+         //출력하기
+         temp = `${name}의 성적 총점은  ${sum} 이고, 이번 성적의 평균 점수는  ${avg} 입니다.`;
+       
+        $("#result").html(temp);
+
+        })
+   
+          //새로입력
+          $("#btnClear").click(()=>{
+            $("input").val(""); //태그값 초기화
+            $("#result").html(""); //결과 초기화
+          })
+        }))
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>성적관리 프로그램(자바스크립트)</h2>
+    이름 : <input type="text" id="name"><br>
+    국어 : <input type="text" id="kn"><br>
+    영어 : <input type="text" id="en"><br>
+    수학 : <input type="text" id="mh"><br>
+    과학 : <input type="text" id="sn"><br>
+    <br><hr>
+    <h3>성적 결과 확인</h3>
+
+    <button type="button" onclick="btnCofirm()">결과확인</button>&nbsp;
+    <button type="button" onclick="btnClear()">새로입력</button>&nbsp;<br/>
+
+    <div id="result"></div>
+</body>
+</html>
+
+<script> //매개변수 선언
+    function btnCofirm(){
+        //1.입력받기(input 모두)
+        name = document.getElementById("name").value; //이름입력
+        kn = document.getElementById("kn").value; //국어
+        en = document.getElementById("en").value; //영어
+        mh = document.getElementById("mh").value; //수학
+        sn = document.getElementById("sn").value; //과학
+        //input 입력받은 값을 숫자로 변환
+        kn = parseInt(kn);
+        en = parseInt(en);
+        mh = parseInt(mh);
+        sn = parseInt(sn);
+
+        //2.연산하기
+        sum = kn + en + mh + sn; //성적합계
+        avg = sum / 4; //성적평균
+
+       //3.성적 입력범위 조건부여
+        if(kn > 100 || kn < 0){
+            alert("'국어' 성적의 입력범위를 초과했습니다. 0~100까지만 입력 가능합니다.");
+            //document.getElementsByTagName("input").value=""; //초기화가 안먹히는 현상
+            input = document.getElementById("kn").value=""; //오류값만 재입력
+            return false;
+            }
+        if(en > 100 || en < 0){
+            alert("'영어' 성적의 입력범위를 초과했습니다. 0~100까지만 입력 가능합니다.");
+            input = document.getElementById("en").value=""; //오류값만 재입력
+            return false;
+            }
+        if(mh > 100 || mh < 0){
+            alert("'수학' 성적의 입력범위를 초과했습니다. 0~100까지만 입력 가능합니다.");
+            input = document.getElementById("mh").value=""; //오류값만 재입력
+            return false;
+            }
+        if(sn > 100 || sn < 0){
+            alert("'과학' 성적의 입력범위를 초과했습니다. 0~100까지만 입력 가능합니다.");
+            input = document.getElementById("sn").value=""; //오류값만 재입력
+            return false;
+            }
+
+        
+        //4.출력하기
+        temp = `${name}의 성적 총점은  ${sum} 이고, 이번 성적의 평균 점수는  ${avg} 입니다.`;
+       
+        document.getElementById("result").innerHTML = temp;
+    }
+
+    function btnClear(){ //초기화 해주는 함수 만들기
+        document.getElementById("name").value="";
+        document.getElementById("kn").value="";
+        document.getElementById("en").value="";
+        document.getElementById("mh").value="";
+        document.getElementById("sn").value="";
+        document.getElementById("result").innerHTML="";
+    }
+
+</script>
