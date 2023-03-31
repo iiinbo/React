@@ -1,40 +1,46 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <table style="width: 80%; margin: auto; border: violet 1px solid;">
-        <!-- 각 열들에게 스타일을 지정(크기 등)해 주기위한 목적으로 colgroup -->
-        <colgroup> 
-            <col style="width : 80%">
-            <col style="width : 10%">
-            <col style="width : 10%">
-        </colgroup>
-        <thead>
-            <th>품목</th>
-            <th>개수</th>
-            <th>단가</th>
-        </thead>
-        <tbody id="body">
-            <tr>
-                <td>흑임자비비빅</td>
-                <td>100</td>
-                <td>800</td>
-            </tr>
-            <tr>
-                <td>망고젤리</td>
-                <td>200</td>
-                <td>500</td>
-            </tr>
-        </tbody>
+  </head>
+  <body>
+    <table
+      style="width: 80%; margin: auto; border: violet 1px solid"
+     
+    >
+      <!-- 각 열들에게 스타일을 지정(크기 등)해 주기위한 목적으로 colgroup -->
+      <colgroup>
+        <col style="width: 80%" />
+        <col style="width: 10%" />
+        <col style="width: 10%" />
+      </colgroup>
+      <thead>
+        <th>품목</th>
+        <th>개수</th>
+        <th>단가</th>
+      </thead>
+      <tbody  id="tbody">
+        <tr>
+          <td>흑임자비비빅</td>
+          <td>100</td>
+          <td>800</td>
+        </tr>
+        <tr>
+          <td>망고젤리</td>
+          <td>200</td>
+          <td>500</td>
+        </tr>
+      </tbody>
     </table>
-</body>
+  </body>
 </html>
-<script>
+
+<script> 
     let data = [
         {name : "새우깡", count : 2, price : 2000},
         {name : "양파링", count : 24, price : 5000},

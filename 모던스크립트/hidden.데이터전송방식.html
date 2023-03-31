@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <!-- form은 한페이지에 한번만 등장 권장. 
+         input은 form태그 안에 있어야 값이 서버로 정보전달 가능. 단독x-->
+
+    <!-- from 태그 안에 input이 있어야 값 입력 받으면, 웹주소가 아래 주석처럼 변경된다. : "get 방식" -->
+    <!-- 예시) 로그인 정보의 경우, 정보를 서버로 전달하면 안되겠지! -->
+   <form>
+        암호 : <input type="hidden" name="password" value="999"><br/>
+        아이디 : <input type="text" name="userid"><br/>
+        이름 : <input type="text" name="username"><br/>
+        <input type="submit"  value="보내기"><br/> 
+    </form>
+    <!--get방식 예 :  http://127.0.0.1:5500/%ED%9E%88%EB%93%A0.html?userid=test1&username=123 -->
+    
+    <!-- 서버로 데이터 전송하는 방식 2개 : 하나. get방식 / 둘.post방식
+    클라이언트-----------------서버
+    
+    header(선발대), 기초적인 정보를 먼저 보낸다
+    예를들어, 브라우저 정보나 1000byte이내 가벼운 정보
+    body(후발대) , 중요한 정보, 파일 전송, 이미지 전송 많은양의 데이터
+
+    1.get 방식 : header만 보낸다. 화면 url에 모든 정보가 드러난다. (보안 필요없는 가벼운 정보일 때.)
+    = key1 : value1 & key2 : value2 & key3 : value3 형태 . 한글은 다른문자로 변환됨
+    한글 변환 시 encoding 작업을 해서 보내고, 받는 쪽에선 decoding작업을 해야 함.
+    요즘은 브라우저 버전에 따라 다르게 동작하므로 안정적 운영을 위해선
+    한글로 전송하지 않거나 다른 작업을 하는 것이 좋음.
+
+    2.post 방식 : header 먼저 보내고, 다른 정보는 body에 담아 보낸다.
+      데이터 양 무제한에 가깝지만 30mb 이내로 제한.
+      중요한 정보, 파일 전송, 이미지 전송 많은양의 데이터 -->
+
+</body>
+</html>
+<script>
+    
+</script>
