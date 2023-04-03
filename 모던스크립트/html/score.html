@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <%for(item of scoreData){%>
+      <%=item.name%> &nbsp; &nbsp;
+      <%=item.kor%> &nbsp; &nbsp;
+      <%=item.eng%> &nbsp; &nbsp;
+      <%=item.mat%><br/>
+    <%}%> -->
+
+    <table>
+      <thead>
+          <th>이름</th>
+          <th>국어점수</th>
+          <th>영어점수</th>
+          <th>수학점수</th>
+          <th>합계</th>
+          <th>평균</th>
+      </thead>
+      <tbody>
+          <%for(board of scoreData){%>
+            <tr>
+                <td><%=board.name%></td>
+                <td><%=board.kor%></td>
+                <td><%=board.eng%></td>
+                <td><%=board.mat%></td>
+                <td><%=board.kor+board.eng+board.mat%></td>
+                <td><%=(board.kor+board.eng)+board.mat/3%></td>
+            </tr>
+          <%}%>
+      </tbody>
+    </table>
+  </body>
+</html>
+<!-- <script> //또다른 합계와 출력구하기 방식을 알아보자 나중에...
+  for(board of scoreData){
+    board["sum"] = board["kor"] + board["eng"]+ board["mat"]; //합계구하기
+    board["avg"] = board["kor"] + board["eng"]+ board["mat"]/3; //평균구하기
+    }
+</script> -->
+
