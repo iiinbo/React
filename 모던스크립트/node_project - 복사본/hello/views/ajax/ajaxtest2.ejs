@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 CDN가져옴 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+       x : <input type="text" name="x" id="x"><br/>
+       y : <input type="text" name="y" id="y"><br/>
+
+       result : <input type="text" name="result" id="result"><br/>
+
+       <button type="button" id="btnAdd">더하기</button>
+       <button type="button" id="btnSub">빼기</button>
+       <button type="button" id="btnMul">곱하기</button>
+       <button type="button" id="btnDiv">나누기</button>
+    </form>
+</body>
+</html>
+<script> // ** ajax 기본구조 **
+        $(document).ready(()=>{
+            //더하기
+            $("#btnAdd").click( ()=>{
+                //ajax 사용 시 비동기 모드를 고려햐여 반환값 없다는 것 유의!
+                //그리고 json형태로 사용해준다. .val~~
+                $.ajax({
+                    url : "/ajax/add", //서버주소넣고
+                    data : {"x":$("#x").val(), "y":$("#y").val()},
+                    dataType : "json" //결과를 제이슨형식으로 가져올 것이다.
+                })
+                .done((res, status, error)=>{ //점 다음 적힌 내용이 수행된다. 정상종료일 때.
+                    console.log(res);
+                    $("#result").val( res.result ); //연산결과를 result(버튼id)에 출력.
+                })
+                .fail((res, status, error)=>{ //비정상 종료일 때.
+                    console.log(status);
+                }) 
+            })
+            //빼기
+            $("#btnSub").click( ()=>{
+                //ajax 사용 시 비동기 모드를 고려햐여 반환값 없다는 것 유의!
+                //그리고 json형태로 사용해준다. .val~~
+                $.ajax({
+                    url : "/ajax/sub", //서버주소넣고
+                    data : {"x":$("#x").val(), "y":$("#y").val()},
+                    dataType : "json" //결과를 제이슨형식으로 가져올 것이다.
+                })
+                .done((res, status, error)=>{ //점 다음 적힌 내용이 수행된다. 정상종료일 때.
+                    console.log(res);
+                    $("#result").val( res.result ); //연산결과를 result(버튼id)에 출력.
+                })
+                .fail((res, status, error)=>{ //비정상 종료일 때.
+                    console.log(status);
+                }) 
+            })
+            //곱하기
+            $("#btnMul").click( ()=>{
+                //ajax 사용 시 비동기 모드를 고려햐여 반환값 없다는 것 유의!
+                //그리고 json형태로 사용해준다. .val~~
+                $.ajax({
+                    url : "/ajax/mul", //서버주소넣고
+                    data : {"x":$("#x").val(), "y":$("#y").val()},
+                    dataType : "json" //결과를 제이슨형식으로 가져올 것이다.
+                })
+                .done((res, status, error)=>{ //점 다음 적힌 내용이 수행된다. 정상종료일 때.
+                    console.log(res);
+                    $("#result").val( res.result ); //연산결과를 result(버튼id)에 출력.
+                })
+                .fail((res, status, error)=>{ //비정상 종료일 때.
+                    console.log(status);
+                }) 
+            })
+            //나누기
+            $("#btnDiv").click( ()=>{
+                //ajax 사용 시 비동기 모드를 고려햐여 반환값 없다는 것 유의!
+                //그리고 json형태로 사용해준다. .val~~
+                $.ajax({
+                    url : "/ajax/div", //서버주소넣고
+                    data : {"x":$("#x").val(), "y":$("#y").val()},
+                    dataType : "json" //결과를 제이슨형식으로 가져올 것이다.
+                })
+                .done((res, status, error)=>{ //점 다음 적힌 내용이 수행된다. 정상종료일 때.
+                    console.log(res);
+                    $("#result").val( res.result ); //연산결과를 result(버튼id)에 출력.
+                })
+                .fail((res, status, error)=>{ //비정상 종료일 때.
+                    console.log(status);
+                }) 
+            })
+        })
+</script>

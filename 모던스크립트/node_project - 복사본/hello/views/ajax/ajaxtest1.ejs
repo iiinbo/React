@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="x" id="x">
+    <div id="result"></div>
+    <button type="button" id="btnCall" onclick="ajaxCall()">Ajax호출하기</button>
+</body>
+</html>
+
+<script>
+    function ajaxCall(){ //버튼을 누르면 아래 내용 작업시작~
+        
+        //서버와 백그라운드에서 통신을 할 것이다.
+        var xhttp = new XMLHttpRequest(); //통신담당 객체
+
+        //서버에 응답이 있을 경우 호출될 함수 적기
+        xhttp.onload=function(){
+            //xhttp 객체에 responseText 라는 속성이 있고
+            //이 속성에 서버에서 전달된 값이 저장되어 있다.
+            console.log( this.responseText );
+            document.getElementById("result").innerHTML = this.responseText;
+        }
+
+        //서버로 원하는 정보를 요청한다.
+        xhttp.open("GET", "/ajax/result1");
+        xhttp.send(); //서버로 접속 요청을 '비동기식'으로 보낸다. 결과값없이.
+    }
+</script>
