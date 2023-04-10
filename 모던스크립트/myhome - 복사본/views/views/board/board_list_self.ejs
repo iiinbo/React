@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 부트스트랩 템플릿 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- css적용 : 파일경로 주의(public부터 아님) -->
+    <link href="../stylesheets/board.css" rel="stylesheet" type="text/css"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+  <!-- 헤더바 : layout 폴더 > header_st.ejs 파일 가져오기 -->
+  <!-- board 폴더 기준 상위에 위치하므로 ../ 사용 -->
+  <%-include('../layout/header_st.ejs')%>
+    <div class="container" style="margin-top:80px">
+        <h2 >스타프렌즈 게시판</h2>
+
+        <div class="input-group mb-3" style="margin-top:20px;">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                검색
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">제목</a></li>
+              <li><a class="dropdown-item" href="#">내용</a></li>
+              <li><a class="dropdown-item" href="#">제목+내용</a></li>
+            </ul>
+            <input type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-secondary" type="submit">Go</button>
+          </div>
+
+        <table class="sub_news" style="text-align: center; width: 100%; height: 50%; margin-bottom: 20px;" >
+          <!-- 5개 열 : colgroup으로 너비지정 -->
+          <colgroup >
+            <col style="width: 10%;">
+            <col style="width: 40%;">
+            <col style="width: 20%;">
+            <col style="width: 20%;">
+            <col style="width: 10%;">
+        </colgroup>
+            <thead class="table-secondary">
+              <tr>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+              </tr>
+            </thead>
+            <tbody>
+            <!-- tbody안에 삽입될 게시글 내용들은 db에서 가져와 보여준다.  -->
+            <!-- 1. for문+List로 전체 출력. -->
+            <!-- 2. 글번호 : id, 제목 : title, 내용 : contents, 작성자 : writer, 작성일 : wdate, 조회수 : hit -->
+            <!-- 3. 상세보기 기능을 위해 제목이나 내용선택 > 상세화면 연동 -->
+            <%for(item of boardList){%>
+              <tr>
+                <td class="id"><%=item.id%></td> 
+                <td class="title"><a href=""><%=item.title%></a></td>  
+                <td><%=item.writer%></td> 
+                <td class="wdate"><%=item.wdate%></td> 
+                <td class="hit"><%=item.hit%></td> 
+              </tr>
+            <%}%>
+              
+            </tbody>
+          </table>
+
+ 
+          <ul class="pagination justify-content-center; margin-top : 20%">
+            <li class="page-item disabled"><a class="page-link" href="#">처음으로</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">끝으로</a></li>
+          </ul>
+       
+          <div class="container mt-3" style="text-align:right;">
+            <input type="button" class="btn btn-secondary" value="글쓰기">
+          </div>
+          
+    </div>
+</body>
+</html>
