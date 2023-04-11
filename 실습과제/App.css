@@ -1,0 +1,35 @@
+.writer{
+  height: 50px;
+  background-color: rgba(255, 217, 0, 0.637);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  font-size: large;
+  margin: 5px 5px 5px 5px;
+}
+input {
+  width: 200px;
+  height: 30px;
+  font-size: large;
+  margin: 2px 2px 2px 2px;
+}
+
+p{
+  font-size: large;
+  font-weight: bolder;
+  color: blueviolet;
+}
+
+
+
+.App {
+  text-align: center;
+}
+
