@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리액트</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <!-- 1. 사전준비 -->
+    <div id="root"></div>
+    <script type="text/babel">
+    const {useState} = React; // import : 상단에서 선언 필요
+
+    //<!-- 3. 컴포넌트 추가 : class기반은 상단에서 써줘야 에러안남. -->
+    class Mycomponent1 extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <h1>Class기반 컴포넌트</h1>    
+                    </div>
+                )
+            }
+        }
+
+     // 화면에 찍을 내용.  (+작성한 컴포넌트 맘껏 추가 가능.) 
+        ReactDOM.render(
+            <div>
+                <h1>카운터2</h1>    
+                <Counter/> 
+                <Counter/>
+                <Counter/>
+                <Mycomponent1/>
+            
+            </div>,
+            document.getElementById("root") //root : 전체 구조의 뿌리가 되는 태그.
+        );
+
+    //<!-- 2. 컴포넌트 작성 -->
+       
+        function Counter(){
+            // 리액트는 변수를 state라는 공간에 저장한다.
+            // 함수에 변수를 만들면 함수 종료 시 변수가 다 사라지므로,
+            // 유지됨을 위해 상태정보를 state 공간에 저장시킨다.
+            const [number, setNumber] = useState(0);
+            //      [변수, 변수의 값을 바꾸는 함수] = useState(변수초기값)
+            
+            // 더하기
+            const onIncrease = ()=>{
+                setNumber( number+1 ); // 직접 함수 호출 아니고, set이 붙은 함수를 호출해서 값을 바꾸어야 리액트가 화면에 랜더링 작업진행한다.(자바처럼)
+            }
+            // 빼기
+            const onDecrease = ()=>{
+                setNumber( number-1 );
+            }
+            return(
+                <div>
+                    <h3>{number}</h3>    
+                    <button type="button" onClick={onIncrease}>+</button> 
+                    <button type="button" onClick={onDecrease}>-</button> 
+                </div>
+            )
+        }
+        
+    </script>
+</body>
+</html>
