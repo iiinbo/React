@@ -1,0 +1,81 @@
+/* 스타프렌즈 게시판 css */
+.sub_news .sub_news th .sub_news td {
+  border: 0;
+}
+.sub_news a {
+  color: #383838;
+  text-decoration: none;
+}
+.sub_news {
+  width: 100%;
+  padding: 5px 200px 50px;
+  border-bottom: 1px;
+  color: #666;
+  font-size: 18px;
+  table-layout: fixed;
+}
+
+.sub_news > h2 {
+  font-size: 38px;
+  color: black;
+  caption-side: top;
+  text-align: left;
+  margin: 5px 0 5px;
+}
+
+.sub_news th {
+  padding: 1px 0 3px;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  background-color: #f1f1f4;
+  color: #333;
+  font-weight: bold;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.sub_news td {
+  padding: 8px 0 9px;
+  border-bottom: solid 1px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.sub_news.date,
+.sub_news.hit {
+  padding: 0;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.sub_news .title {
+  text-align: left;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.sub_news .title {
+  text-align: left;
+  padding-left: 30px;
+  font-size: 18px;
+}
+
+.sub_news .title .pic,
+.sub_news .title .sub_news {
+  margin: 0 0 2px;
+  vertical-align: middle;
+}
+
+/* .sub_news .title a.comment {
+  padding: 0;
+  background-color: none;
+  color: #f00;
+  font-size: 18px;
+  font-weight: bold;
+} */
+
+.sub_news tr.reply .title a {
+  padding-left: 16px;
+  text-align: left;
+  background: url(#) 0 1px no-repeat;
+}

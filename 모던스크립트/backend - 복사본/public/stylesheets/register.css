@@ -1,0 +1,31 @@
+/* 우편번호 + 주소입력 */
+/* 주소 입력란 전체 */
+.addressInput {
+width: 100%;
+padding: 2px 2px;
+border-color: gainsboro;
+}
+.addressInput > input {
+    height: 35px;
+    margin: 3px 3px 3px;
+    }
+/* 도로명 주소란 */
+#sample4_roadAddress {
+    width: 100%;
+}
+/* 상세주소란 */
+#sample4_detailAddress {
+    width: 55%;
+}
+/* 참고항목란 */
+#sample4_extraAddress {
+    width: 42%;
+    margin-left: 8px;
+    /* 좌측정렬 필요 */
+    
+}
+
+/******* 확인/취소버튼 *******/
+.container {
+    margin-top: 20px;
+}

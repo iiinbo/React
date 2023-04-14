@@ -1,0 +1,42 @@
+<!-- board 게시판 페이지 넘기기 -->
+<!-- 필요 시 자바스크립트로 만든 함수 연결하려면 href에 아래처럼 쓰기. -->
+<ul class="pagination  justify-content-center">
+    <li class="page-item "><a class="page-link" href="javascript:goPage('1')">처음으로</a></li>
+    <!-- if문 의미 : 이미 맨 첫번째 페이지일 땐, 더 이전으로 갈 수 없으므로. disabled(버튼비활성화) 유지 -->
+    <%if( paging.pg==1 ){%>
+        <li class="page-item disabled"><a class="page-link" href="#none">이전</a></li>
+    <%} else {%>
+        <li class="page-item"><a class="page-link" href="javascript:goPage(<%=paging.pg-1%>)">이전</a></li>
+    <%}%>
+
+    
+
+
+
+    <!-- 현재 선택된 페이지 : 파랗게 표현 -->
+    <%for(var i=paging.pnStart; i<paging.pnEnd; i++){
+        classType="";
+        if(i==pg){ 
+            classType="active"; //부트스트랩에선 active가 붙으면 파랗게 표시됨.
+        }%>
+    <li class="page-item <%=classType%>" >
+        <a class="page-link" href="javascript:goPage('<%=i%>')"><%=i%></a>
+    </li>
+    <%}%>
+
+    <!-- 게시글 개수에 따라 자동으로 늘어나게 할거라. -->
+    <!-- <li class="page-item"><a class="page-link" href="javascript:goPage('2')">2</a></li>
+    <li class="page-item"><a class="page-link" href="javascript:goPage('3')">3</a></li>
+    <li class="page-item"><a class="page-link" href="javascript:goPage('4')">4</a></li>
+    <li class="page-item"><a class="page-link" href="javascript:goPage('5')">5</a></li> -->
+
+
+    <!-- 마지막 페이지(paging.pnTotal)라면, 더이상 다음으로 못넘어가게 if문 -->
+    <%if( paging.pg==paging.pnTotal ){%>
+        <li class="page-item disabled"><a class="page-link" href="#none">다음</a></li>
+    <%} else {%>
+        <li class="page-item"><a class="page-link" href="javascript:goPage(<%=parseInt(paging.pg)+1%>)">다음</a></li>
+    <%}%>
+    <li class="page-item"><a class="page-link" href="javascript:goPage(<%=paging.pnTotal%>)">끝으로</a></li>
+  </ul>
+  <!-- 혹시, 페이지 안넘어갈 땐, parseInt로 바꿔주고 +1 이나 -1을 해줄 것 -->

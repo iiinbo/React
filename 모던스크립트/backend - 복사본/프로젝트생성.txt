@@ -1,0 +1,37 @@
+0-1. 프로젝트 폴더 만든 뒤 cmd 관리자 창 열어서 아래처럼 입력한다.
+cd 경로 붙여넣기.(생성한 폴더위치 까지 복사 붙여넣기)
+0-2.npm install -g express-generator : 프로그램을 먼저 설치해야 express 프로그램 사용이 가능하다.(자동 코드생성기를 활용한 방법으로 페이지제작 가능)
+0-3. node_modules(라이브러리)을 설치하기 위해 명령창에 추가 입력 : express starfriends(프로젝트명 그대로쓰기) --view=ejs
+0-4. 추가입력(명령창에 3개 행 나옴) : cd starfriends
+0-5. 추가입력(명령창에 3개 행 나옴)  :npm install
+0-6. 추가입력(명령창에 3개 행 나옴)  :SET DEBUG=starfriends:* & npm start
+//폴더 들어가서, node_modules폴더까지 잘 생성되어있다면 끝.
+
+
+시작 : npm start 또는 nodemon start (nodemon 프로그램이 설치되어 있을 때 가능)
+
+3. 게시판 만들기
+board_list.html, board_write.html, board_view.html 
+확장자 ejs로 바꿔서 view폴더에 놓는다.
+
+4. 라우터 만들기 (board.js, member.js) - 라우터파일(js파일)은 업무별로 만든다. 게시판, 회원용 ,,등
+[참고. 폴더 1. routes 폴더   2. views 폴더
+            - 업무별 js파일   - 업무별 html명(ex. board / member)
+                               - 각 화면별 ejs파일]
+
+5. app.js에서 라우터 임포트한다. import, require로 url도 등록.
+---------------------------------------------
+*로그인 정보 저장시킬 때
+- 세션(서버에 저장-로그온이나 장바구니 등 정보 저장 시 많이 사용)
+- 쿠키(내컴퓨터에 저장. 보안취약)
+-----------
+node.js에서 세션을 사용하려면,
+1. 파일 2.DB
+2번 mysql DB에 세션정보를 저장하려한다.
+아래 명령어 2개 입력해서 설치
+npm install express-session
+npm install express-mysql-session
+
+설치 끝난 뒤 app.js파일을 열어서 아래 2줄추가하기.
+const session = require("express-session"); //로그온 기능을 위해 추가
+const MYSQLSTORE = require("express-mysql-session")(session); //로그온 기능을 위해 추가
